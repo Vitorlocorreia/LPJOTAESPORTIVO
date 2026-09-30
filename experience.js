@@ -9,8 +9,7 @@ export function setupExperience({setHorizontal,updateCaseControls,count}) {
     gsap.to('.sports-band>div',{xPercent:-20,ease:'none',scrollTrigger:{trigger:'.sports-band',start:'top bottom',end:'bottom top',scrub:1}});
     gsap.to('.asterisk',{rotation:135,ease:'none',scrollTrigger:{trigger:'.manifesto',start:'top bottom',end:'bottom top',scrub:1}});
     gsap.from('.proof strong',{yPercent:30,opacity:0,duration:1.2,scrollTrigger:{trigger:'.proof',start:'top 88%'}});
-    gsap.to('.principles-bg',{yPercent:15,scale:1.12,ease:'none',scrollTrigger:{trigger:'.principles',start:'top bottom',end:'bottom top',scrub:1}});
-    $$('.principle-list p').forEach((el,i)=>gsap.fromTo(el,{opacity:.22,x:i%2?70:-35,scale:.93},{opacity:1,x:0,scale:1,ease:'none',scrollTrigger:{trigger:el,start:'top 85%',end:'top 48%',scrub:.6}}));
+    gsap.to('.services-bg',{yPercent:15,scale:1.12,ease:'none',scrollTrigger:{trigger:'.services',start:'top bottom',end:'bottom top',scrub:1}});
     gsap.from('.contact-arrow',{x:-50,y:50,rotation:-35,opacity:0,duration:1.3,scrollTrigger:{trigger:'.contact',start:'top 70%'}});
     gsap.from('.footer-word',{yPercent:45,ease:'none',scrollTrigger:{trigger:'footer',start:'top bottom',end:'bottom bottom',scrub:1}});
     const image=$('#audience-image');$$('[data-audience]').forEach(button=>button.addEventListener('click',()=>gsap.fromTo(image,{clipPath:'inset(0 100% 0 0)',scale:1.1},{clipPath:'inset(0 0% 0 0)',scale:1,duration:.65,ease:'power3.out',overwrite:true})));
