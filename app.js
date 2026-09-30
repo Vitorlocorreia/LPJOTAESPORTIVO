@@ -3,6 +3,7 @@
   const $ = (s, root = document) => root.querySelector(s);
   const $$ = (s, root = document) => [...root.querySelectorAll(s)];
   const content = window.JOTA_CONTENT;
+  document.querySelectorAll('[data-direct-whatsapp]').forEach(link=>link.href='https://wa.me/'+content.whatsapp.replace(/\D/g,''));
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const compact = matchMedia('(max-width: 700px)');
   const track = $('#case-track');
@@ -26,6 +27,7 @@
   menuButton.addEventListener('click',()=>{showDialog(menu,menuButton);menuButton.setAttribute('aria-expanded','true');});
   $('.close-menu').addEventListener('click',()=>menu.close());
   menu.addEventListener('close',()=>menuButton.setAttribute('aria-expanded','false'));
+  matchMedia('(min-width: 701px)').addEventListener('change',e=>{if(e.matches&&menu.open)menu.close();});
   $$('a',menu).forEach(link=>link.addEventListener('click',()=>menu.close()));
   $('#privacy-open').addEventListener('click',e=>showDialog($('#privacy-dialog'),e.currentTarget));
   track.addEventListener('click',e=>{
