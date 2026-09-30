@@ -20,3 +20,6 @@ html{scroll-behavior:auto}
 
 /* SVG strokes cannot be replaced by Apple Color Emoji glyphs. */
 .ui-icon{display:inline-block;width:1em;height:1em;vertical-align:-.12em;flex-shrink:0;overflow:visible}.asterisk>.ui-icon{display:block;width:1em;height:1em}.button span>.ui-icon{vertical-align:middle}.case-arrows .ui-icon{width:22px;height:22px}.menu nav a>span>.ui-icon{display:block}.footer-word .ui-icon{width:.85em;height:.85em}.case-info:before{content:none}.cross{font-variant-emoji:text}
+
+/* Floating contact keeps only the metallic logo. */
+.logo-flight.is-contact,.logo-flight.is-contact:hover,.logo-flight.is-contact:focus-visible{background:transparent;border:0;box-shadow:none;border-radius:0}
