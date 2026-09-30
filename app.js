@@ -6,6 +6,9 @@
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const compact = matchMedia('(max-width: 700px)');
   const track = $('#case-track');
+  const header=$('.header');
+  const updateHeader=()=>header.classList.toggle('is-scrolled',scrollY>8);
+  window.addEventListener('scroll',updateHeader,{passive:true});updateHeader();
   const escape = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const caseMarkup = item => `<article class="case-card"><div class="case-visual"><span class="case-index">${String(content.cases.indexOf(item)+1).padStart(2,'0')} / PROJETO</span><img src="${escape(item.image)}" width="640" height="800" loading="lazy" alt="${escape(item.name)} — material público do projeto"><span class="case-client">${escape(item.name)}</span></div><div class="case-info"><span class="eyebrow">${escape(item.category)}</span><h3>${escape(item.title)}</h3><div class="case-metric"><strong>${escape(item.metric)}</strong><p>${escape(item.metricLabel)}</p></div><button data-case="${escape(item.id)}" aria-label="Explorar projeto ${escape(item.name)}">Explorar projeto <span>↗</span></button></div></article>`;
   track.innerHTML = content.cases.map(caseMarkup).join('');

@@ -51,10 +51,10 @@ export function mountLogo(host) {
   const rim=new THREE.PointLight(0xffffff,95000,1100,2);rim.position.set(240,-80,120);scene.add(rim);
   host.appendChild(renderer.domElement);
   host.classList.add('has-webgl');
-  let visible=true,progress=0,pointer={x:0,y:0},disposed=false;
+  let visible=true,progress=0,pointer={x:0,y:0},disposed=false,introTurn=null;
   const render=()=>{
     if(!visible||disposed||document.hidden)return;
-    group.rotation.set(.16-progress*.3+pointer.y*.09,-.42+progress*Math.PI*2+pointer.x*.13,-.10+progress*.13);
+    group.rotation.set(.16-progress*.3+pointer.y*.09,-.42+(introTurn??progress)*Math.PI*2+pointer.x*.13,-.10+progress*.13);
     group.scale.setScalar(1);
     renderer.render(scene,camera);
   };
@@ -64,6 +64,6 @@ export function mountLogo(host) {
   const onVisibility=()=>render();document.addEventListener('visibilitychange',onVisibility);
   const loss=e=>{e.preventDefault();host.classList.remove('has-webgl');};renderer.domElement.addEventListener('webglcontextlost',loss);
   resize();
-  return {update(p,x=0,y=0){progress=p;pointer={x,y};render();},dispose(){disposed=true;ro.disconnect();io.disconnect();document.removeEventListener('visibilitychange',onVisibility);geometry.dispose();face.dispose();satin.dispose();edge.dispose();environment.dispose();pmrem.dispose();studio.traverse(o=>{o.geometry?.dispose();o.material?.dispose();});renderer.dispose();renderer.domElement.remove();host.classList.remove('has-webgl');}};
+  return {update(p,x=0,y=0,turn=null){progress=p;introTurn=turn;pointer={x,y};render();},dispose(){disposed=true;ro.disconnect();io.disconnect();document.removeEventListener('visibilitychange',onVisibility);geometry.dispose();face.dispose();satin.dispose();edge.dispose();environment.dispose();pmrem.dispose();studio.traverse(o=>{o.geometry?.dispose();o.material?.dispose();});renderer.dispose();renderer.domElement.remove();host.classList.remove('has-webgl');}};
 }
 

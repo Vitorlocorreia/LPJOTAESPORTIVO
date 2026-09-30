@@ -3,7 +3,7 @@ export function setupLogoFlight(phone) {
   const reduced=matchMedia('(prefers-reduced-motion: reduce)'),compact=matchMedia('(max-width: 700px)');
   const flight=document.createElement('a');flight.className='logo-flight';flight.setAttribute('aria-label','Conversar com a JOTA pelo WhatsApp');flight.tabIndex=-1;
   flight.target='_blank';flight.rel='noopener noreferrer';
-  flight.innerHTML='<span class="flight-label">Conversar pelo WhatsApp ↗</span>';
+  flight.innerHTML='<span class="flight-label">Conversar pelo WhatsApp â†—</span>';
   flight.prepend(scene);document.body.append(flight);document.body.classList.add('has-logo-flight');
   let model=null,version=0,frame=0,p=0,target=0,px=0,py=0,lastTime=0,layout=null;
   const clamp=n=>Math.max(0,Math.min(1,n));
