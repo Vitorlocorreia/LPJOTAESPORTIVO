@@ -1,0 +1,4 @@
+GSAP and ScrollTrigger 3.13.0
+Standard no-charge license: https://gsap.com/standard-license/
+Copyright GreenSock. License attribution is also included in each distributed JavaScript file.
+Package metadata preserved in reference/gsap-package.json.
